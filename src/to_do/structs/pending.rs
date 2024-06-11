@@ -1,4 +1,7 @@
 use super::super::enums::TaskStatus;
+use super::super::traits::create::Create;
+use super::super::traits::edit::Edit;
+use super::super::traits::get::Get;
 use super::base::Base;
 
 pub struct Pending {
@@ -13,3 +16,7 @@ impl Pending {
         return Pending { super_struct: base };
     }
 }
+
+impl Create for Pending {}
+impl Edit for Pending {}
+impl Get for Pending {}

@@ -13,3 +13,7 @@ pub fn read_file(file_name: &str) -> Map<String, Value> {
     let state: Map<String, Value> = json.as_object().unwrap().clone();
     return state;
 }
+pub fn write_to_file(file_name: &str, state: &mut map<string, value>) {
+    let new_data = json!(state);
+    fs::write(file_name.to_string(), new_data.to_string()).expect("unable to write file");
+}

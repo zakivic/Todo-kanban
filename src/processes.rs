@@ -8,6 +8,13 @@ use super::to_do::ItemTypes;
 use serde_json::value::Value;
 use serde_json::Map;
 
+pub fn process_input(item: ItemTypes, command: String, state: &Map<String, Value>) {
+    match item {
+        ItemTypes::Pending(item) => process_pending(item, command, state),
+        ItemTypes::Done(item) => process_done(item, command, state),
+    }
+}
+
 fn process_pending(item: Pending, command: String, state: &Map<String, Value>) {
     let mut state = state.clone();
     match command.as_str() {

@@ -21,7 +21,7 @@ fn process_pending(item: Pending, command: String, state: &Map<String, Value>) {
         "get" => item.get(&item.super_struct.title, &state),
         "create" => item.create(
             &item.super_struct.title,
-            &item.super_struct.status.stringify(),
+            &item.super_struct.status.to_string(),
             &mut state,
         ),
         "edit" => item.set_to_done(&item.super_struct.title, &mut state),
